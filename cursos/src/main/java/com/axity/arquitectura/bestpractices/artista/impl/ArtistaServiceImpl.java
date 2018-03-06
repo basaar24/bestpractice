@@ -28,16 +28,13 @@ public class ArtistaServiceImpl extends DataMockBase implements ArtistaService{
     }
 
     public void validaNull(){
-        for (ArtistaTO artista: artistas) {
-            Optional.ofNullable(artista.getEdad()).map(a->a-1).orElse(1000);
-        }
+
     }
 
     public void buscarEdadNombre(){
-        for (ArtistaTO artista: artistas) {
-            Optional.ofNullable(artista.getEdad()).map(a->a-1).orElse(1000);
-        }
+
     }
+
 
 
     private void referenceJPA(FileCreditFilterTO fileCreditFilterTO){
