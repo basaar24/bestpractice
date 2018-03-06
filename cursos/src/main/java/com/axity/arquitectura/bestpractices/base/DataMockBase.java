@@ -28,7 +28,7 @@ public abstract class DataMockBase {
             fechaNacimiento.add(Calendar.DATE,1);
             artista.setFechaNacimiento(fechaNacimiento.getTime());
             Random rand = new Random();
-            
+
             if(index>100 && (index%100)==1){
                 artista.setEdad( null);
             }else{

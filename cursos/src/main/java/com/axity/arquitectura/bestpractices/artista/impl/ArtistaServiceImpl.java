@@ -31,6 +31,12 @@ public class ArtistaServiceImpl extends DataMockBase implements ArtistaService{
 
     }
 
+    /**
+     * 1.- Buscar a los artistas que tengan un rango de edad entre 20-25{} y mostrar una LEYENDA de "Jovenes Promesas"
+     * 2.- Contar cuantos Artistas tienen la misma edad de 25 al 45 y de 50 al 60
+     * 3.- Sobre escribir el nombre de los siguientes rangos  (1- 20 --- Neymar) (25 a 50 Don Julio)  (50 a 75 Don Ramon), (75 a 100 Dejar el default).
+     *
+     * */
     public void buscarEdadNombre(){
 
     }
