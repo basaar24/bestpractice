@@ -3,8 +3,11 @@ package com.axtity.ejemplo.test;
 
 import com.axity.arquitectura.bestpractices.artista.ArtistaService;
 import com.axity.arquitectura.bestpractices.artista.impl.ArtistaServiceImpl;
+import com.axity.arquitectura.bestpractices.data.ArtistaTO;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
 
 public class EjemploTest {
 
@@ -18,9 +21,9 @@ public class EjemploTest {
 
     @Test
     public void testArtistias(){
-        artistaService.buscarPorNombre(" Roger").
-                forEach(x->{
-                    System.out.println(x.getNombre());
-                });
+        List<ArtistaTO> artistas = artistaService.buscarPorNombre(" Roger");
+        for (ArtistaTO artista: artistas) {
+            System.out.println(artista.getNombre() + " " + artista.getEdad());
+        }
     }
 }
