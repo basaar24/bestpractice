@@ -30,7 +30,7 @@ public abstract class DataMockBase {
             Random rand = new Random();
 
             if(index>100 && (index%100)==1){
-                artista.setEdad( null);
+                artista.setEdad( 10);
             }else{
                 artista.setEdad( edad);
             }

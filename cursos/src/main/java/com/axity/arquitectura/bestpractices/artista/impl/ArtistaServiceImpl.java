@@ -12,9 +12,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Tuple;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ArtistaServiceImpl extends DataMockBase implements ArtistaService{
 
@@ -23,13 +22,37 @@ public class ArtistaServiceImpl extends DataMockBase implements ArtistaService{
 
 
     public List<ArtistaTO> buscarPorNombre(String nombre) {
-        System.out.println(" SIZE ::: " + artistas.size());
         return artistas;
     }
 
-    public void validaNull(){
+
+    public void agruparCollecion(){
+        Map<String, List<ArtistaTO>> group2 = artistas.stream().collect(Collectors.groupingBy(p -> p.getNombre() + "-" + p.getEdad(), Collectors.toList()));
+        group2.forEach((k,v)->{
+
+        });
+
+        Map<String, List<Integer>> group = artistas.stream().collect(Collectors.groupingBy(p -> p.getNombre(), Collectors.mapping((ArtistaTO a) -> a.getEdad(), Collectors.toList())));
+        final int[] sum = {0};
+        group.forEach((k,v)->{
+            sum[0] = sum[0] +v.size();
+            System.out.println(k +" |   count " + v.size());
+        });
+    }
+
+    /**
+     * Ejemplo para eliminar cualquier objeto duplciado de una colleccion
+     * Se debe  considerar implementar el equals y hashcode.
+     */
+    public void eliminarDuplicados(){
+        List<ArtistaTO> artists = artistas.stream().distinct().collect(Collectors.toList());
+        System.out.println(" Registros unicos" + artistas.stream().distinct().count());
+        artists.forEach(a->{
+            System.out.println(a.getNombre()+"-"+a.getEdad());
+        });
 
     }
+
 
     /**
      * 1.- Buscar a los artistas que tengan un rango de edad entre 20-25{} y mostrar una LEYENDA de "Jovenes Promesas"

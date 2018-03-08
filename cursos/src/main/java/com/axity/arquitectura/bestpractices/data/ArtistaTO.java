@@ -1,6 +1,7 @@
 package com.axity.arquitectura.bestpractices.data;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class ArtistaTO {
 
@@ -44,5 +45,20 @@ public class ArtistaTO {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ArtistaTO artistaTO = (ArtistaTO) o;
+        return Objects.equals(nombre, artistaTO.nombre) &&
+                Objects.equals(edad, artistaTO.edad);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(nombre, edad);
     }
 }

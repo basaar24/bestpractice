@@ -22,8 +22,16 @@ public class EjemploTest {
     @Test
     public void testArtistias(){
         List<ArtistaTO> artistas = artistaService.buscarPorNombre(" Roger");
-        for (ArtistaTO artista: artistas) {
-            System.out.println(artista.getNombre() + " " + artista.getEdad());
-        }
+
+    }
+
+    @Test
+    public void testEliminarArtistas(){
+         artistaService.eliminarDuplicados();
+    }
+
+    @Test
+    public void testAgruparCollecion(){
+        artistaService.agruparCollecion();
     }
 }
