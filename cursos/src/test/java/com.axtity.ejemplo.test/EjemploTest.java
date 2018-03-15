@@ -34,4 +34,14 @@ public class EjemploTest {
     public void testAgruparCollecion(){
         artistaService.agruparCollecion();
     }
+
+    @Test
+    public void testDivision(){
+        int year =2006;
+        int bc = year%400;
+        boolean isSame = bc==0;
+        System.out.println(" resultado ==" + year +" === " + bc + " resutlado "+ isSame + " da "+ (year % 400 == 0));
+        boolean isLeap= (year % 4 == 0 && year % 100 != 0 || year % 400 == 0);
+        System.out.println(" isleap ==" + isLeap);
+    }
 }
